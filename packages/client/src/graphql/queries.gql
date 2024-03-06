@@ -1,0 +1,6 @@
+query FindAllBooks {
+  books {
+    _id
+    title
+  }
+}
