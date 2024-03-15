@@ -2,29 +2,96 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Author {
+  _id: ID!
+  name: String!
+  verified: Boolean!
+  reviews: [Review!]!
+}
+
+type Review {
+  _id: ID!
+  rating: Float!
+  content: String!
+  book: Book!
+  author: Author!
+}
+
 type Book {
   _id: ID!
   title: String!
+  length: Float!
+  reviews: [Review!]
 }
 
 type Query {
   books: [Book!]!
-  book(bookId: String!): Book!
+  book(bookId: ID!): Book!
+  authors: [Author!]!
+  author(authorId: String!): Author!
+  reviews: [Review!]!
+  review(reviewId: String!): Review!
 }
 
 type Mutation {
   createBook(createBookInput: CreateBookInput!): Book!
   updateBook(updateBookInput: UpdateBookInput!): Book!
   removeBook(bookId: String!): Book!
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
+  updateAuthor(updateAuthorInput: UpdateAuthorInput!): Author!
+  removeAuthor(authorId: String!): Author!
+  createReview(createReviewInput: CreateReviewInput!): Review!
+  updateReview(updateReviewInput: UpdateReviewInput!): Review!
+  removeReview(reviewId: String!): Review!
 }
 
 input CreateBookInput {
   """Title of the book"""
   title: String!
+
+  """Number of pages in the book"""
+  length: Float!
 }
 
 input UpdateBookInput {
   """Title of the book"""
   title: String
+
+  """Number of pages in the book"""
+  length: Float
+  _id: ID!
+}
+
+input CreateAuthorInput {
+  """Author name"""
+  title: String!
+
+  """Indicates if the author is verified or not"""
+  verified: Boolean!
+}
+
+input UpdateAuthorInput {
+  """Author name"""
+  title: String
+
+  """Indicates if the author is verified or not"""
+  verified: Boolean
+  _id: ID!
+}
+
+input CreateReviewInput {
+  """Rating of the review"""
+  rating: Float!
+
+  """Content of the review"""
+  content: String!
+}
+
+input UpdateReviewInput {
+  """Rating of the review"""
+  rating: Float
+
+  """Content of the review"""
+  content: String
   _id: ID!
 }

@@ -5,23 +5,23 @@ import { Review } from 'src/review/entities/review.entity';
 
 @Schema()
 @ObjectType()
-export class Book {
+export class Author {
   @Field(() => ID)
   _id: string;
 
   @Prop()
   @Field()
-  title: string;
+  name: string;
 
   @Prop()
   @Field()
-  length: number;
+  verified: boolean;
 
-  @Prop()
-  @Field(() => [Review], { nullable: true })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Review' })
+  @Field(() => [Review])
   reviews: [Review];
 }
 
-export type BookDocument = Book & mongoose.Document;
+export type AuthorDocument = Author & mongoose.Document;
 
-export const BookSchema = SchemaFactory.createForClass(Book);
+export const AuthorSchema = SchemaFactory.createForClass(Author);

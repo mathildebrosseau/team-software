@@ -16,22 +16,59 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type Author = {
+  __typename?: 'Author';
+  _id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  reviews: Array<Review>;
+  verified: Scalars['Boolean']['output'];
+};
+
 export type Book = {
   __typename?: 'Book';
   _id: Scalars['ID']['output'];
+  length: Scalars['Float']['output'];
+  reviews?: Maybe<Array<Review>>;
   title: Scalars['String']['output'];
 };
 
+export type CreateAuthorInput = {
+  /** Author name */
+  title: Scalars['String']['input'];
+  /** Indicates if the author is verified or not */
+  verified: Scalars['Boolean']['input'];
+};
+
 export type CreateBookInput = {
+  /** Number of pages in the book */
+  length: Scalars['Float']['input'];
   /** Title of the book */
   title: Scalars['String']['input'];
 };
 
+export type CreateReviewInput = {
+  /** Content of the review */
+  content: Scalars['String']['input'];
+  /** Rating of the review */
+  rating: Scalars['Float']['input'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  createAuthor: Author;
   createBook: Book;
+  createReview: Review;
+  removeAuthor: Author;
   removeBook: Book;
+  removeReview: Review;
+  updateAuthor: Author;
   updateBook: Book;
+  updateReview: Review;
+};
+
+
+export type MutationCreateAuthorArgs = {
+  createAuthorInput: CreateAuthorInput;
 };
 
 
@@ -40,8 +77,28 @@ export type MutationCreateBookArgs = {
 };
 
 
+export type MutationCreateReviewArgs = {
+  createReviewInput: CreateReviewInput;
+};
+
+
+export type MutationRemoveAuthorArgs = {
+  authorId: Scalars['String']['input'];
+};
+
+
 export type MutationRemoveBookArgs = {
   bookId: Scalars['String']['input'];
+};
+
+
+export type MutationRemoveReviewArgs = {
+  reviewId: Scalars['String']['input'];
+};
+
+
+export type MutationUpdateAuthorArgs = {
+  updateAuthorInput: UpdateAuthorInput;
 };
 
 
@@ -49,21 +106,67 @@ export type MutationUpdateBookArgs = {
   updateBookInput: UpdateBookInput;
 };
 
+
+export type MutationUpdateReviewArgs = {
+  updateReviewInput: UpdateReviewInput;
+};
+
 export type Query = {
   __typename?: 'Query';
+  author: Author;
+  authors: Array<Author>;
   book: Book;
   books: Array<Book>;
+  review: Review;
+  reviews: Array<Review>;
+};
+
+
+export type QueryAuthorArgs = {
+  authorId: Scalars['String']['input'];
 };
 
 
 export type QueryBookArgs = {
-  bookId: Scalars['String']['input'];
+  bookId: Scalars['ID']['input'];
+};
+
+
+export type QueryReviewArgs = {
+  reviewId: Scalars['String']['input'];
+};
+
+export type Review = {
+  __typename?: 'Review';
+  _id: Scalars['ID']['output'];
+  author: Author;
+  book: Book;
+  content: Scalars['String']['output'];
+  rating: Scalars['Float']['output'];
+};
+
+export type UpdateAuthorInput = {
+  _id: Scalars['ID']['input'];
+  /** Author name */
+  title?: InputMaybe<Scalars['String']['input']>;
+  /** Indicates if the author is verified or not */
+  verified?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type UpdateBookInput = {
   _id: Scalars['ID']['input'];
+  /** Number of pages in the book */
+  length?: InputMaybe<Scalars['Float']['input']>;
   /** Title of the book */
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateReviewInput = {
+  _id: Scalars['ID']['input'];
+  /** Content of the review */
+  content?: InputMaybe<Scalars['String']['input']>;
+  /** Rating of the review */
+  rating?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type FindAllBooksQueryVariables = Exact<{ [key: string]: never; }>;

@@ -3,6 +3,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { BookService } from './book.service';
 import { BookResolver } from './book.resolver';
 import { BookSchema } from './entities/book.entity';
+import { ReviewService } from 'src/review/review.service';
+import { ReviewModule } from 'src/review/review.module';
+import { ReviewResolver } from 'src/review/review.resolver';
 
 @Module({
   imports: [
@@ -10,9 +13,9 @@ import { BookSchema } from './entities/book.entity';
       {
         name: 'Book',
         schema: BookSchema,
-      },
+      }
     ]),
   ],
-  providers: [BookResolver, BookService],
+  providers: [BookResolver, BookService]
 })
 export class BookModule {}

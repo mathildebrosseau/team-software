@@ -1,0 +1,44 @@
+[
+    {
+        "rating": 4,
+        "content": "J'ai adoré l'atmosphère mystérieuse de ce livre. Les personnages étaient fascinants et l'intrigue était pleine de rebondissements.",
+        "author_id": ,
+        "book_id":
+    },
+    {
+        "rating": 3,
+        "content": "Ce livre m'a totalement absorbé dès la première page. L'écriture était magnifique et l'histoire était captivante. Je le recommande vivement !",
+        "author_id": ,
+        "book_id":
+    },
+    {
+        "rating": 2,
+        "content": "Une lecture divertissante, mais j'ai trouvé que l'intrigue manquait un peu de profondeur. Cependant, les descriptions de la montagne étaient incroyables.",
+        "author_id": ,
+        "book_id":
+    },
+    {
+        "rating": 3,
+        "content": "Un thriller palpitant ! L'atmosphère sombre et oppressante m'a gardé en haleine jusqu'à la fin. Une lecture que je recommande aux amateurs de suspense.",
+        "author_id": ,
+        "book_id":
+    },
+    {
+        "rating": 5,
+        "content": "Ce livre avait un début prometteur, mais j'ai trouvé que l'intrigue perdait un peu de sa force vers la fin. Néanmoins, l'écriture était belle.",
+        "author_id": ,
+        "book_id":
+    },
+    {
+        "rating": 4,
+        "content": "Un voyage époustouflant à travers les étoiles ! Ce livre m'a fait réfléchir sur notre place dans l'univers. Une lecture inoubliable.",
+        "author_id": ,
+        "book_id":
+    },
+    {
+        "rating": 4,
+        "content": "Une histoire captivante qui mêle science-fiction et mystère. J'ai été impressionné par l'imagination de l'auteur. Je recommande ce livre à tous les amateurs de voyage dans le temps.",
+        "author_id": ,
+        "book_id":
+    }
+]
